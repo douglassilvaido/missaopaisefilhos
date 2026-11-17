@@ -1,5 +1,5 @@
 const samples = {
-  meias: ['Meias no Cesto', ['meias-passos', 'Passo a passo ilustrado'], ['meias-materiais', 'Materiais e quantidades']],
+  meias: ['Meias no Cesto', ['meias-passos', 'Passo a passo ilustrado'], ['meias-materiais', 'Materiais e instruções']],
   quebraCabeca: ['Quebra-cabeça de Desenho', ['quebra-cabeca-passos', 'Passo a passo ilustrado'], ['quebra-cabeca-materiais', 'Materiais e quantidades']],
   domino: ['Dominó Desenhado', ['domino-passos', 'Passo a passo ilustrado'], ['domino-materiais', 'Materiais e quantidades']],
   ponte: ['Ponte de Papel', ['ponte-passos', 'Passo a passo ilustrado'], ['ponte-materiais', 'Materiais e quantidades']],
@@ -12,8 +12,6 @@ const samples = {
 const dialog = document.querySelector('.sample-dialog');
 const sampleTitle = document.querySelector('#sample-title');
 const samplePages = document.querySelector('.sample-pages');
-const upgradeOffer = document.querySelector('#upgrade-offer');
-document.querySelector('#choose-basic').addEventListener('click', () => upgradeOffer.showModal());
 const completeButton = document.querySelector('.plan-action .complete-cta');
 const pulseObserver = new IntersectionObserver(([entry]) => {
   if (!entry.isIntersecting) return;
@@ -62,62 +60,45 @@ dialog.addEventListener('click', event => {
       event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
 });
 
-const testimonialTrack = document.querySelector('.testimonials-track');
-if (testimonialTrack.children.length > 1) {
-  const controls = document.createElement('div');
-  controls.className = 'testimonials-controls';
-  const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  const indicators = document.createElement('div');
-  indicators.className = 'testimonials-indicators';
-  const count = testimonialTrack.children.length;
-  let visible = false;
-  let timer;
-  function currentIndex() {
-    return Math.round(testimonialTrack.scrollLeft / testimonialTrack.clientWidth);
+// Atribuição de campanhas no salto da página de vendas para a Cakto.
+const attribution = new URLSearchParams(window.location.search);
+for (const link of document.querySelectorAll('a[href^="https://pay.cakto.com.br/"]')) {
+  const destination = new URL(link.href);
+  for (const [key, value] of attribution) {
+    if (/^(utm_[a-z0-9_]+|fbclid|gclid|ttclid|src|sck)$/i.test(key) && !destination.searchParams.has(key)) {
+      destination.searchParams.set(key, value);
+    }
   }
-  function show(index) {
-    const width = testimonialTrack.clientWidth;
-    const next = (index + count) % count;
-    testimonialTrack.scrollTo({ left: next * width, behavior: motion.matches ? 'instant' : 'smooth' });
-  }
-  function restart() {
-    clearInterval(timer);
-    if (visible && !motion.matches && !document.hidden) timer = setInterval(() => show(currentIndex() + 1), 8000);
-  }
-  for (const [label, direction] of [['Anterior', -1], ['Próximo', 1]]) {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.textContent = direction < 0 ? '‹' : '›';
-    button.setAttribute('aria-label', label + ' depoimento');
-    button.addEventListener('click', () => {
-      show(currentIndex() + direction);
-      restart();
-    });
-    controls.append(button);
-  }
-  const positions = Array.from(testimonialTrack.children, (_, index) => {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.setAttribute('aria-label', `Depoimento ${index + 1} de ${count}`);
-    button.addEventListener('click', () => {
-      show(index);
-      restart();
-    });
-    indicators.append(button);
-    return button;
-  });
-  function updatePosition() {
-    const active = currentIndex();
-    positions.forEach((button, index) => button.setAttribute('aria-current', String(index === active)));
-  }
-  testimonialTrack.after(controls, indicators);
-  testimonialTrack.addEventListener('scroll', updatePosition, { passive: true });
-  updatePosition();
-  testimonialTrack.addEventListener('pointerdown', restart);
-  document.addEventListener('visibilitychange', restart);
-  motion.addEventListener('change', restart);
-  new IntersectionObserver(([entry]) => {
-    visible = entry.isIntersecting;
-    restart();
-  }, { threshold: 0.25 }).observe(testimonialTrack);
+  link.href = destination.href;
 }
+
+const offerBanner = document.querySelector('#offer-countdown');
+const offerTime = document.querySelector('#offer-time');
+const offerDuration = 15 * 60 * 1000;
+const offerKey = 'missao-pais-filhos-offer-deadline';
+let offerDeadline = Date.now() + offerDuration;
+try {
+  const saved = Number(localStorage.getItem(offerKey));
+  if (Number.isFinite(saved) && saved > 0) {
+    offerDeadline = saved;
+  } else {
+    localStorage.setItem(offerKey, String(offerDeadline));
+  }
+} catch {
+  // The countdown still runs when browser storage is unavailable.
+}
+
+function renderOfferCountdown() {
+  const seconds = Math.max(0, Math.ceil((offerDeadline - Date.now()) / 1000));
+  if (seconds === 0) {
+    const expired = document.createElement('span');
+    expired.textContent = 'Prazo da oferta encerrado';
+    offerBanner.replaceWith(expired);
+    return;
+  }
+  const minutes = String(Math.floor(seconds / 60)).padStart(2, '0');
+  offerTime.textContent = minutes + ':' + String(seconds % 60).padStart(2, '0');
+  window.setTimeout(renderOfferCountdown, 250);
+}
+
+renderOfferCountdown();
