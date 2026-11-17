@@ -12,20 +12,49 @@
   <script src="interacoes.js" defer></script>
 </head>
 <body class="family-page">
-  <div class="offer-banner">🚨 Condição especial hoje <span aria-hidden="true">•</span> <time datetime="2026-11-14">14/11/2026</time></div>
+  <div class="offer-banner"><a href="#pricing" id="offer-countdown">🔥 Oferta por Tempo Limitado — Expira em <span id="offer-time" role="timer" aria-live="off">15:00</span></a></div>
   <main class="family-main">
     <section class="family-hero" id="hero-section">
       <div class="family-inner hero-grid">
         <div class="hero-copy">
           <p class="family-label">+200 Projetos e Missões para Pais e Filhos Fazerem Juntos</p>
-          <h1>Tenha <span class="text-benefit">+200 ideias prontas</span> para criar e brincar junto com seu filho</h1>
-          <p class="family-lead">Troque o <strong class="text-pain">“estou entediado”</strong> por um “vamos fazer juntos?”. Escolha uma das +200 propostas em PDF, separe os materiais e siga o <strong class="text-benefit">passo a passo ilustrado</strong>. Para crianças de 3 a 8 anos.</p>
-          <a class="family-cta" href="#pricing">Quero escolher meu kit <span aria-hidden="true">↘</span></a>
+          <h1>“Vamos brincar?” <span class="text-benefit">Tenha uma ideia pronta</span> pra escolher com seu filho.</h1>
+          <p class="family-lead">São +200 projetos e missões para fazerem juntos, dos 3 aos 8 anos. Escolham uma ficha pela idade, vejam a atividade em imagens e confiram o que separar e como fazer.</p>
+          <a class="family-cta" href="#pricing">Ver os planos <span aria-hidden="true">↘</span></a>
+          <a class="text-link hero-preview-link" href="#preview-section">Ver uma atividade por dentro <span aria-hidden="true">↘</span></a>
           <p class="family-payment">Kits a partir de R$ 10,00 · Material digital em PDF</p>
         </div>
         <figure class="hero-demo">
           <img class="hero-art" src="assets/mockup-produto.webp" width="1536" height="1024" alt="Mockup do caderno +200 Projetos e Missões acompanhado dos quatro bônus" fetchpriority="high">
         </figure>
+      </div>
+    </section>
+
+    <section class="family-section" id="preview-section" aria-labelledby="preview-title">
+      <div class="family-inner">
+        <div class="section-intro">
+          <p class="family-label">Uma ficha do caderno</p>
+          <h2 id="preview-title">Quatro meias e um cesto. Vamos brincar?</h2>
+          <p>Em <strong>Meias no Cesto</strong> (3–4 anos), vocês se revezam nos arremessos. A criança escolhe se quer mudar a distância.</p>
+        </div>
+        <div class="preview-pages">
+          <figure>
+            <a href="assets/meias-passos.webp" data-sample="meias" aria-label="Ampliar ficha Meias no Cesto">
+              <img src="assets/meias-passos.webp" width="953" height="1348" loading="lazy" alt="Meias no Cesto em uma sequência de quadros ilustrados">
+            </a>
+            <figcaption>Página 1 · Atividade ilustrada</figcaption>
+          </figure>
+          <figure>
+            <a href="assets/meias-materiais.webp" data-sample="meias" aria-label="Ampliar materiais e instruções de Meias no Cesto">
+              <img src="assets/meias-materiais.webp" width="953" height="1348" loading="lazy" alt="Meias no Cesto com lista de materiais e três passos escritos">
+            </a>
+            <figcaption>Página 2 · Materiais e como fazer</figcaption>
+          </figure>
+        </div>
+        <div class="section-intro preview-action">
+          <p><strong>Separem</strong> 4 meias e 1 cesto baixo. <strong>Primeiro passo:</strong> coloque o cesto no chão e enrole as meias, uma por vez.</p>
+          <a class="text-link" href="assets/meias-passos.webp" data-sample="meias">Ampliar as duas páginas <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
     </section>
 
@@ -42,7 +71,7 @@
         <div class="section-intro">
           <p class="family-label">Veja por dentro</p>
           <h2>Três ideias para <span class="text-benefit">experimentar juntos</span></h2>
-          <p>Abra uma ficha para ver a prancha e a lista de materiais.</p>
+          <p>Abra uma ficha para ver a prancha e a página de materiais.</p>
         </div>
         <div class="activity-grid">
           <article class="activity-card">
@@ -70,7 +99,7 @@
         </div>
         <ol class="format-list">
           <li><span aria-hidden="true">1</span><div><h3>Uma prancha com os passos</h3><p>Veja o nome da atividade e acompanhe as imagens numeradas na ordem em que vocês vão fazer.</p></div></li>
-          <li><span aria-hidden="true">2</span><div><h3>Uma página com os materiais</h3><p>Na página seguinte, confira os itens e as quantidades antes de começar.</p></div></li>
+          <li><span aria-hidden="true">2</span><div><h3>Uma página com materiais e instruções</h3><p>Na página seguinte, confira os itens e as quantidades e leia o passo a passo por escrito.</p></div></li>
         </ol>
       </div>
     </section>
@@ -117,7 +146,9 @@
       <div class="family-inner">
         <div class="section-intro">
           <p class="family-label">Escolha seu kit</p>
-          <h2>Tenha ideias prontas para o próximo <span class="text-pain">“não tenho nada para fazer”</span>.</h2>
+          <h2>Compare os dois planos</h2>
+          <p>O Kit Completo inclui o caderno e quatro bônus: 30 missões rápidas, folhas recortáveis, guia de materiais e planners por idade.</p>
+          <a class="text-link" href="#bonus-section">Conheça os quatro bônus <span aria-hidden="true">↑</span></a>
         </div>
         <div class="family-plans">
           <article class="family-plan">
@@ -125,10 +156,10 @@
             <div class="kit-visual">
               <img class="kit-cover" src="assets/capa.webp" width="300" height="250" loading="lazy" alt="Capa de +200 Projetos e Missões">
             </div>
-            <div><p class="previous-price">De <s>R$ 49,90</s> por</p><p class="family-price">R$ 10,00</p></div>
-            <ul class="check-list"><li>+200 atividades ilustradas em PDF</li><li>Três faixas etárias de 3 a 8 anos</li><li>Passos numerados e listas com quantidades</li></ul>
+            <div><p class="family-price">R$ 10,00</p></div>
+            <ul class="check-list"><li>+200 atividades ilustradas em PDF</li><li>Três faixas etárias de 3 a 8 anos</li><li>Passos ilustrados, materiais e instruções por escrito</li></ul>
             <div class="plan-action">
-              <button class="family-cta outline-cta" id="choose-basic" type="button" aria-haspopup="dialog" aria-controls="upgrade-offer">Quero o caderno por R$ 10,00</button>
+              <a class="family-cta outline-cta" id="choose-basic" href="https://pay.cakto.com.br/ied8zeg_1323010">Quero o caderno por R$ 10,00</a>
             </div>
           </article>
           <article class="family-plan family-plan-complete">
@@ -137,7 +168,7 @@
             <div class="kit-visual">
               <img class="kit-cover" src="assets/mockup-produto.webp" width="1536" height="1024" loading="lazy" alt="Mockup de +200 Projetos e Missões com os quatro bônus do Kit Completo">
             </div>
-            <div><p class="previous-price">De <s>R$ 160,90</s> por</p><p class="family-price">R$ 19,90</p></div>
+            <div><p class="family-price">R$ 19,90</p></div>
             <ul class="check-list"><li>Caderno completo com +200 atividades</li><li>Bônus 1: Temos 10 minutos</li><li>Bônus 2: Kit de Peças Prontas</li><li>Bônus 3: Use o que tem em casa</li><li>Bônus 4: 30 Dias em Família</li></ul>
             <div class="plan-action">
               <a class="family-cta complete-cta" href="https://pay.cakto.com.br/3auf3dg_1323124">Quero o kit completo por R$ 19,90</a>
@@ -158,22 +189,24 @@
       </div>
     </section>
 
-    <section class="family-section" id="testimonials-section" aria-labelledby="testimonials-title">
-      <div class="family-inner narrow">
-        <div class="section-intro"><h2 id="testimonials-title">Depoimentos</h2></div>
-        <div class="testimonials-carousel" aria-roledescription="carrossel" role="group" aria-labelledby="testimonials-title">
-          <div class="testimonials-track">
-            <figure><img src="assets/depoimento-1.png" width="941" height="1672" alt="Marina conta como montou flores de papel em família" loading="lazy"></figure>
-            <figure><img src="assets/depoimento-2.png" width="941" height="1672" alt="Rafael conta como brincou de jogar meias no cesto" loading="lazy"></figure>
-            <figure><img src="assets/depoimento-3.png" width="941" height="1672" alt="Bianca conta como brincou de Dança do Espelho" loading="lazy"></figure>
-            <figure><img src="assets/depoimento-4.png" width="941" height="1672" alt="Lucas conta como testou a Ponte de Papel" loading="lazy"></figure>
-            <figure><img src="assets/depoimento-5.png" width="941" height="1672" alt="Camila conta como brincou de Detetive das Meias" loading="lazy"></figure>
-            <figure><img src="assets/depoimento-6.png" width="941" height="1672" alt="Diego conta como fez o Mapa dos Sons" loading="lazy"></figure>
-          </div>
+    <section class="family-section activity-stories" aria-labelledby="activity-stories-title">
+      <div class="family-inner">
+        <div class="section-intro">
+          <h2 id="activity-stories-title">O que vocês podem fazer juntos?</h2>
+          <p>Deslize os cartões ou use as setas do teclado para explorar as ideias.</p>
         </div>
+        <ul class="activity-stories-track" tabindex="0" aria-label="Oito exemplos de atividades do caderno e dos bônus">
+          <li><h3>Uma brincadeira com meias</h3><p>Enrolem quatro meias, se revezem nos arremessos e deixem a criança escolher a distância.</p><p class="activity-stories-source">Meias no Cesto · Caderno</p></li>
+          <li><h3>Um jardim de papel</h3><p>Rasguem papel colorido, experimentem montar as flores e colem quando gostarem do resultado.</p><p class="activity-stories-source">Jardim de Papel Rasgado · Caderno</p></li>
+          <li><h3>Um desafio entre dois livros</h3><p>Testem qual ponte sustenta a bolinha: a folha lisa ou a dobrada em sanfona.</p><p class="activity-stories-source">Ponte de Papel · Caderno</p></li>
+          <li><h3>Um ritmo pra copiar</h3><p>Sentem lado a lado. Uma pessoa inventa um ritmo de palmas, a outra copia. Depois, troquem.</p><p class="activity-stories-source">Ritmo com Palmas · Temos 10 Minutos</p></li>
+          <li><h3>Um desenho vira quebra-cabeça</h3><p>Façam um desenho, recortem em peças e desafiem a família a montar a figura de novo.</p><p class="activity-stories-source">Quebra-cabeça de Desenho · Caderno</p></li>
+          <li><h3>Um dominó inventado por vocês</h3><p>Desenhem os símbolos nas peças e se revezem encaixando pontas com desenhos iguais.</p><p class="activity-stories-source">Dominó Desenhado · Caderno</p></li>
+          <li><h3>Uma missão de detetive</h3><p>Façam perguntas para descobrir qual cartão de meia a outra pessoa escolheu.</p><p class="activity-stories-source">Detetive das Meias · Kit de Peças Prontas</p></li>
+          <li><h3>Um plano pro sábado</h3><p>Escolham juntos uma ideia para fazer no fim de semana e marquem no planner da faixa etária.</p><p class="activity-stories-source">30 Dias em Família · Planner</p></li>
+        </ul>
       </div>
     </section>
-
     <section class="family-section" id="sample-section">
       <div class="family-inner proof-card">
         <a class="proof-image" href="assets/ponte-passos.webp" data-sample="ponte" aria-label="Abrir a amostra Ponte de Papel"><img src="assets/ponte-passos.webp" width="1220" height="1726" loading="lazy" alt=""></a>
@@ -208,29 +241,6 @@
   <dialog class="sample-dialog" aria-labelledby="sample-title">
     <header class="sample-header"><h2 id="sample-title"></h2><form method="dialog"><button class="close-sample" aria-label="Fechar amostra">×</button></form></header>
     <div class="sample-pages"></div>
-  </dialog>
-  <dialog class="upgrade-dialog" id="upgrade-offer" aria-labelledby="upgrade-title">
-    <div class="upgrade-header">
-      <strong>⚡ Oferta especial nesta janela</strong>
-      <form method="dialog"><button class="close-sample" aria-label="Fechar oferta" autofocus>×</button></form>
-    </div>
-    <div class="upgrade-content">
-      <p class="upgrade-tag">🎁 Oferta do Kit Completo</p>
-      <h2 id="upgrade-title">Leve o caderno e <span class="text-pain">os 4 bônus</span> por menos</h2>
-      <p class="previous-price">De <s>R$ 19,90</s> por</p>
-      <p class="family-price text-benefit">R$ 15,00</p>
-      <ul class="upgrade-items">
-        <li>📘 +200 Projetos e Missões</li>
-        <li>🎁 Temos 10 minutos</li>
-        <li>🎁 Kit de Peças Prontas</li>
-        <li>🎁 Use o que tem em casa</li>
-        <li>🎁 30 Dias em Família</li>
-      </ul>
-      <p class="upgrade-note">Economize R$ 4,90 no Kit Completo com esta oferta.</p>
-      <a class="family-cta complete-cta" href="https://pay.cakto.com.br/nnyimxw_1323173">Sim, quero o Completo por R$ 15,00</a>
-      <a class="upgrade-decline" href="https://pay.cakto.com.br/ied8zeg_1323010">Prefiro continuar com o Básico por R$ 10,00</a>
-      <p class="checkout-status">A Cakto cobra R$ 0,99 de taxa em qualquer opção.</p>
-    </div>
   </dialog>
 </body>
 </html>
